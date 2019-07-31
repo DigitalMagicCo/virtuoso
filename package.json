@@ -1,0 +1,19 @@
+{
+  "name": "virtuoso",
+  "version": "0.1.0",
+  "description": "DigitalMagic Virtuoso, an open-source music player",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DigitalMagicCo/virtuoso.git"
+  },
+  "author": "Josh Kennedy",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/DigitalMagicCo/virtuoso/issues"
+  },
+  "homepage": "https://github.com/DigitalMagicCo/virtuoso#readme"
+}
