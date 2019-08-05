@@ -2,9 +2,32 @@
   "name": "virtuoso",
   "version": "0.1.0",
   "description": "DigitalMagic Virtuoso, an open-source music player",
-  "main": "index.js",
+  "main": "main.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "build -mw"
+  },
+  "build": {
+    "appId": "io.digitalmagic.virtuoso.desktop",
+    "productName": "DigitalMagic Virtuoso",
+    "copyright": "Copyright © 2019 DigitalMagic LLC.",
+    "mac": {
+      "category": "public.app-category.music"
+    },
+    "files": [
+      "build/**/*",
+      "node_modules/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    }
   },
   "repository": {
     "type": "git",
@@ -15,5 +38,37 @@
   "bugs": {
     "url": "https://github.com/DigitalMagicCo/virtuoso/issues"
   },
-  "homepage": "https://github.com/DigitalMagicCo/virtuoso#readme"
+  "homepage": "https://github.com/DigitalMagicCo/virtuoso#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "electron-is-dev": "^1.1.0",
+    "electron-util": "^0.12.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "^3.0.1",
+    "redux": "^4.0.1"
+  },
+  "devDependencies": {
+    "electron": "^6.0.0",
+    "electron-builder": "^20.44.4",
+    "@rescripts/cli": "^0.0.11",
+    "@rescripts/rescript-env": "^0.0.10",
+    "wait-on": "^3.3.0",
+    "typescript": "^3.4.3"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
